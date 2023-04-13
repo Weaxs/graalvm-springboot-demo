@@ -2,6 +2,7 @@
  * Copyright (C) 2023 Weaxs
  *
  */
+package org.weaxsey.spring.graaljdk;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import org.graalvm.polyglot.Source;
@@ -10,8 +11,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.weaxsey.spring.graaljdk.ContextExecutorService;
-import org.weaxsey.spring.graaljdk.SpringGraalApplication;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -21,47 +20,46 @@ import java.nio.file.Path;
 
 
 @SpringBootTest(classes = SpringGraalApplication.class)
-public class JsScriptTest {
+public class RScriptTest {
 
-    private URL mainJsUrl;
-    private URL funcJsUrl;
-    private String mainJsCode;
-    private String funcJsCode;
+    private URL mainRUrl;
+    private URL funcRUrl;
+    private String mainRCode;
+    private String funcRCode;
 
     @Autowired
     private ContextExecutorService service;
 
     @BeforeEach
     void init() throws URISyntaxException, IOException {
-        mainJsUrl = getClass().getResource(Consts.JS_MAIN_SCRIPT);
-        funcJsUrl = getClass().getResource(Consts.JS_FUNC_SCRIPT);
-        mainJsCode = new String(Files.readAllBytes(Path.of(mainJsUrl.toURI())));
-        funcJsCode = new String(Files.readAllBytes(Path.of(funcJsUrl.toURI())));
+        mainRUrl = getClass().getResource(Consts.R_MAIN_SCRIPT);
+        funcRUrl = getClass().getResource(Consts.R_FUNC_SCRIPT);
+        mainRCode = new String(Files.readAllBytes(Path.of(mainRUrl.toURI())));
+        funcRCode = new String(Files.readAllBytes(Path.of(funcRUrl.toURI())));
     }
 
     @Test
     void executeMainTestByGraalCtx() throws IOException {
-        Source source = Source.newBuilder("js", mainJsUrl).build();
+        Source source = Source.newBuilder("R", mainRUrl).build();
         service.executeMain(source);
     }
 
     @Test
-    void executeMainTestByJsCtx() throws IllegalAccessException {
-        service.executeMain("js", mainJsCode);
+    void executeMainTestByRCtx() throws IllegalAccessException {
+        service.executeMain("R", mainRCode);
     }
 
     @Test
     void executeFuncByGraalCtx() throws IOException {
-        Source source = Source.newBuilder("js", funcJsUrl).build();
+        Source source = Source.newBuilder("R", funcRUrl).build();
         JsonNode ret = service.executeFunc(source, Consts.FUNC_NAME);
         Assertions.assertEquals(Consts.ASSERT_OUT, ret);
     }
 
     @Test
-    void executeFuncByJsCtx() throws IllegalAccessException {
-        JsonNode ret = service.executeFunc("js", funcJsCode, Consts.FUNC_NAME);
+    void executeFuncByRCtx() throws IllegalAccessException {
+        JsonNode ret = service.executeFunc("R", funcRCode, Consts.FUNC_NAME);
         Assertions.assertEquals(Consts.ASSERT_OUT, ret);
     }
-
 
 }

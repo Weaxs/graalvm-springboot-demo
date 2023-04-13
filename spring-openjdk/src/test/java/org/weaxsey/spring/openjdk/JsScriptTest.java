@@ -2,6 +2,7 @@
  * Copyright (C) 2023 Weaxs
  *
  */
+package org.weaxsey.spring.openjdk;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import org.graalvm.polyglot.Source;
@@ -10,8 +11,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.weaxsey.spring.graaljdk.ContextExecutorService;
-import org.weaxsey.spring.graaljdk.SpringGraalApplication;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -20,48 +19,46 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 
-@SpringBootTest(classes = SpringGraalApplication.class)
-public class PythonScriptTest {
+@SpringBootTest(classes = SpringOpenJDKApplication.class)
+public class JsScriptTest {
 
-    private URL mainPyUrl;
-    private URL funcPyUrl;
-    private String mainPyCode;
-    private String funcPyCode;
+    private URL mainJsUrl;
+    private URL funcJsUrl;
+    private String mainJsCode;
+    private String funcJsCode;
 
     @Autowired
     private ContextExecutorService service;
 
     @BeforeEach
     void init() throws URISyntaxException, IOException {
-        mainPyUrl = getClass().getResource(Consts.PY_MAIN_SCRIPT);
-        funcPyUrl = getClass().getResource(Consts.PY_FUNC_SCRIPT);
-        mainPyCode = new String(Files.readAllBytes(Path.of(mainPyUrl.toURI())));
-        funcPyCode = new String(Files.readAllBytes(Path.of(funcPyUrl.toURI())));
+        mainJsUrl = getClass().getResource(Consts.JS_MAIN_SCRIPT);
+        funcJsUrl = getClass().getResource(Consts.JS_FUNC_SCRIPT);
+        mainJsCode = new String(Files.readAllBytes(Path.of(mainJsUrl.toURI())));
+        funcJsCode = new String(Files.readAllBytes(Path.of(funcJsUrl.toURI())));
     }
 
     @Test
     void executeMainTestByGraalCtx() throws IOException {
-        Source source = Source.newBuilder("python", mainPyUrl).build();
+        Source source = Source.newBuilder("js", mainJsUrl).build();
         service.executeMain(source);
     }
 
     @Test
-    void executeMainTestByPyCtx() throws IllegalAccessException {
-        service.executeMain("python", mainPyCode);
+    void executeMainTestByJsCtx() throws IllegalAccessException {
+        service.executeMain("js", mainJsCode);
     }
 
     @Test
     void executeFuncByGraalCtx() throws IOException {
-        Source source = Source.newBuilder("python", funcPyUrl).build();
+        Source source = Source.newBuilder("js", funcJsUrl).build();
         JsonNode ret = service.executeFunc(source, Consts.FUNC_NAME);
         Assertions.assertEquals(Consts.ASSERT_OUT, ret);
     }
 
     @Test
-    void executeFuncByPythonCtx() throws IllegalAccessException {
-        JsonNode ret = service.executeFunc("python", funcPyCode, Consts.FUNC_NAME);
+    void executeFuncByJsCtx() throws IllegalAccessException {
+        JsonNode ret = service.executeFunc("js", funcJsCode, Consts.FUNC_NAME);
         Assertions.assertEquals(Consts.ASSERT_OUT, ret);
     }
-
-
 }
