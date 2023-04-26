@@ -24,7 +24,7 @@ Demos for graalvm with springboot projects.
 
 ## spring with openjdk
 
-**JDK**：[graalvm-jdk](https://www.graalvm.org/downloads/)
+**JDK**：[openjdk](https://openjdk.org/)
 
 **dependency**: org.graalvm.sdk:graal-sdk, org.graalvm.js:js, org.graalvm.js:js-scriptengine
 
