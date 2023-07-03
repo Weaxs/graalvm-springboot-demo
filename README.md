@@ -35,6 +35,16 @@ Demos for graalvm with springboot projects.
 | ----------------------------------------------- | ---------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------- | -------------------------------------------- | --------------------------------------------------------------------- |
 | <img height="30" src="icon/js.png" width="30"/> | js, nodejs | org.graalvm.js:js<br /> org.graalvm.js:js-scriptengine | [JavaScript and Node.js Reference](https://www.graalvm.org/latest/reference-manual/js/) | [graaljs](https://github.com/oracle/graaljs) | [maven graaljs](https://mvnrepository.com/artifact/org.graalvm.js/js) |
 
+## sandbox resource limits
+
+### Community
+[delight-graaljs-sandbox](https://github.com/javadelight/delight-graaljs-sandbox)
+[delight-nashorn-sandbox](https://github.com/javadelight/delight-nashorn-sandbox)
+
+### graalvm official
+[polyglot-sandbox](https://www.graalvm.org/latest/security-guide/polyglot-sandbox/)
+[resource-limits](https://www.graalvm.org/latest/security-guide/polyglot-sandbox/#resource-limits)
+
 ## graalvm docker container
 
 **Github Container Registry**: [https://github.com/orgs/graalvm/packages](https://github.com/orgs/graalvm/packages)
