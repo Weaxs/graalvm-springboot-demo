@@ -28,7 +28,6 @@ public class PolyglotContextFactory {
     @Bean(destroyMethod = "close")
     public Context pythonCtx() {
         return Context.newBuilder("python")
-                .option("python.PosixModuleBackend", "native")
                 // python venv exe path
 //                .option("python.Executable", "/xxx/.python/venv/bin/exe")
                 .out(PY_OUT)

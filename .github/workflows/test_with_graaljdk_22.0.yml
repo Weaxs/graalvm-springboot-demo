@@ -22,6 +22,7 @@ jobs:
           cache: maven
       - name: Install dependencies
         run: |
+          gu available
           gu install python
           gu install R 
           gu install js
