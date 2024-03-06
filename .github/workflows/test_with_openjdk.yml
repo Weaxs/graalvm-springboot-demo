@@ -25,4 +25,4 @@ jobs:
           c++ hello.cpp -o hello
           c++ hello_func.cpp -o hello_func
       - name: Build with Maven
-        run: cd spring-openjdk && mvn -B package -Pcoverage
+        run: cd spring-openjdk && mvn -B package -e -X
