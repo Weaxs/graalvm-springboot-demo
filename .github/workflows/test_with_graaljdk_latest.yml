@@ -16,7 +16,7 @@ jobs:
       - name: Set up GraalVM 17
         uses: graalvm/setup-graalvm@v1
         with:
-          java-version: '17'
+          java-version: '17.0.7'
           distribution: 'graalvm-community'
           cache: maven
       - name: Compile C++
