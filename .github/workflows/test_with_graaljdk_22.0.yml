@@ -1,4 +1,4 @@
-name: Test with GraalVM JDK
+name: Test with GraalVM JDK 22.0
 
 on:
   push:
@@ -22,7 +22,6 @@ jobs:
           cache: maven
       - name: Install dependencies
         run: |
-          gu upgrade
           gu install python
           gu install R 
           gu install js

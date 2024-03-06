@@ -30,8 +30,6 @@ public class PolyglotContextFactory {
     public Context pythonCtx() {
         return Context.newBuilder("python")
                 .option("python.PosixModuleBackend", "native")
-                .option("python.ForceImportSite", "true")
-
                 // python venv exe path
 //                .option("python.Executable", "/xxx/.python/venv/bin/exe")
                 .out(PY_OUT)
