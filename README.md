@@ -1,4 +1,4 @@
-# demos for using graalvm with spring-boot
+# Demos for using graalvm with spring-boot
 
 Demos for graalvm with springboot projects.
 
@@ -20,7 +20,7 @@ Demos for graalvm with springboot projects.
 | <img height="30" src="icon/ruby.png" width="30"/>   | ruby                            | gu install ruby                      | [Ruby Reference](https://www.graalvm.org/latest/reference-manual/ruby/)                 | [truffleruby](https://github.com/oracle/truffleruby) |
 
 > ✨ 1.gu command  in “../graalvm-ce-xx/Contents/Home/bin” directory<br/> ✨ 2. before use llvm, must compile c/c++/fortran/rus/others to executables with embedded bitcode. you can use clang/clang++ in llvm-toolchain, refer [Compiling to LLVM Bitcode
-](https://www.graalvm.org/latest/reference-manual/llvm/Compiling/)
+> ](https://www.graalvm.org/latest/reference-manual/llvm/Compiling/)
 
 ## spring with openjdk
 
@@ -31,21 +31,23 @@ Demos for graalvm with springboot projects.
 **support language**:
 
 
-| icon                                            | language   | requied                               | doc                                                                                     | github repo                                  | maven repo                                                                                         |
-| ----------------------------------------------- | ---------- |---------------------------------------| --------------------------------------------------------------------------------------- | -------------------------------------------- |----------------------------------------------------------------------------------------------------|
-| <img height="30" src="icon/js.png" width="30"/> | js, nodejs | org.graalvm.polyglot:js-community     | [JavaScript and Node.js Reference](https://www.graalvm.org/latest/reference-manual/js/) | [graaljs](https://github.com/oracle/graaljs) | [maven js-community](https://mvnrepository.com/artifact/org.graalvm.polyglot/js-community)         |
-| <img height="30" src="icon/python.png" width="30"/> | python                          | org.graalvm.polyglot:python-community | [Python Reference](https://www.graalvm.org/latest/reference-manual/python/)             | [graalpython](https://github.com/oracle/graalpython) | [maven python-community](https://mvnrepository.com/artifact/org.graalvm.polyglot/python-community) |
-| <img height="30" src="icon/llvm.png" width="30"/>   | C/C++, Fortran, Rust and others | org.graalvm.polyglot:llvm-community   | [LLVM Reference](https://www.graalvm.org/latest/reference-manual/llvm/)                 |                                                      | [maven llvm-community](https://mvnrepository.com/artifact/org.graalvm.polyglot/llvm-community)     |
-| <img height="30" src="icon/ruby.png" width="30"/>   | ruby                            | org.graalvm.polyglot:ruby-community   | [Ruby Reference](https://www.graalvm.org/latest/reference-manual/ruby/)                 | [truffleruby](https://github.com/oracle/truffleruby) | [maven ruby-community](https://mvnrepository.com/artifact/org.graalvm.polyglot/ruby-community)       |
+| icon                                                | language                                          | requied                               | doc                                                                                     | github repo                                          | maven repo                                                                                         |
+| --------------------------------------------------- | ------------------------------------------------- | ------------------------------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| <img height="30" src="icon/js.png" width="30"/>     | js, nodejs       (ECMAScript=>5-14/2015-2023)     | org.graalvm.polyglot:js-community     | [JavaScript and Node.js Reference](https://www.graalvm.org/latest/reference-manual/js/) | [graaljs](https://github.com/oracle/graaljs)         | [maven js-community](https://mvnrepository.com/artifact/org.graalvm.polyglot/js-community)         |
+| <img height="30" src="icon/python.png" width="30"/> | python   (python=>3.10.8)                         | org.graalvm.polyglot:python-community | [Python Reference](https://www.graalvm.org/latest/reference-manual/python/)             | [graalpython](https://github.com/oracle/graalpython) | [maven python-community](https://mvnrepository.com/artifact/org.graalvm.polyglot/python-community) |
+| <img height="30" src="icon/llvm.png" width="30"/>   | C/C++, Fortran, Rust and others   (llvm=>16.0.1;) | org.graalvm.polyglot:llvm-community   | [LLVM Reference](https://www.graalvm.org/latest/reference-manual/llvm/)                 |                                                      | [maven llvm-community](https://mvnrepository.com/artifact/org.graalvm.polyglot/llvm-community)     |
+| <img height="30" src="icon/ruby.png" width="30"/>   | ruby          (ruby=>3.2.2)                       | org.graalvm.polyglot:ruby-community   | [Ruby Reference](https://www.graalvm.org/latest/reference-manual/ruby/)                 | [truffleruby](https://github.com/oracle/truffleruby) | [maven ruby-community](https://mvnrepository.com/artifact/org.graalvm.polyglot/ruby-community)     |
 
 ## sandbox resource limits
 
 ### Community
+
 [delight-graaljs-sandbox](https://github.com/javadelight/delight-graaljs-sandbox)
 
 [delight-nashorn-sandbox](https://github.com/javadelight/delight-nashorn-sandbox)
 
 ### graalvm official
+
 [polyglot-sandbox](https://www.graalvm.org/latest/security-guide/polyglot-sandbox/)
 
 [resource-limits](https://www.graalvm.org/latest/security-guide/polyglot-sandbox/#resource-limits)
