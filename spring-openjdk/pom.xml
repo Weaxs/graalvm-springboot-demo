@@ -22,12 +22,32 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.graalvm.js</groupId>
-            <artifactId>js</artifactId>
+            <groupId>org.graalvm.polyglot</groupId>
+            <artifactId>js-community</artifactId>
+            <type>pom</type>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>org.graalvm.js</groupId>
-            <artifactId>js-scriptengine</artifactId>
+            <groupId>org.graalvm.polyglot</groupId>
+            <artifactId>python-community</artifactId>
+            <type>pom</type>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.graalvm.polyglot</groupId>
+            <artifactId>ruby-community</artifactId>
+            <type>pom</type>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.graalvm.polyglot</groupId>
+            <artifactId>llvm-community</artifactId>
+            <type>pom</type>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.graalvm.sdk</groupId>
+            <artifactId>graal-sdk</artifactId>
         </dependency>
     </dependencies>
 

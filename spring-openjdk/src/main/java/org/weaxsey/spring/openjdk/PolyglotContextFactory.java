@@ -7,6 +7,7 @@ package org.weaxsey.spring.openjdk;
 
 import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.HostAccess;
+import org.graalvm.polyglot.io.IOAccess;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,8 +18,43 @@ import java.util.Date;
 @Configuration
 public class PolyglotContextFactory {
 
+    public static final ByteArrayOutputStream PY_OUT = new ByteArrayOutputStream();
+    public static final ByteArrayOutputStream RB_OUT = new ByteArrayOutputStream();
+    public static final ByteArrayOutputStream LLVM_OUT = new ByteArrayOutputStream();
     public static final ByteArrayOutputStream JS_OUT = new ByteArrayOutputStream();
     public static final ByteArrayOutputStream GRAAL_OUT = new ByteArrayOutputStream();
+
+
+    @Bean(destroyMethod = "close")
+    public Context pythonCtx() {
+        return Context.newBuilder("python")
+                .option("python.PosixModuleBackend", "native")
+                .option("python.ForceImportSite", "true")
+
+                // python venv exe path
+//                .option("python.Executable", "/xxx/.python/venv/bin/exe")
+                .out(PY_OUT)
+                .allowAllAccess(true)
+                .allowIO(IOAccess.ALL)
+                .build();
+    }
+
+    @Bean(destroyMethod = "close")
+    public Context rubyCtx() {
+        return Context.newBuilder("ruby")
+                .out(RB_OUT)
+                .allowAllAccess(true)
+                .build();
+    }
+
+    @Bean(destroyMethod = "close")
+    public Context llvmCtx() {
+        return Context.newBuilder("llvm")
+                .out(LLVM_OUT)
+                .allowAllAccess(true)
+                .allowIO(IOAccess.ALL)
+                .build();
+    }
 
     @Bean(destroyMethod = "close")
     public Context jsCtx() {

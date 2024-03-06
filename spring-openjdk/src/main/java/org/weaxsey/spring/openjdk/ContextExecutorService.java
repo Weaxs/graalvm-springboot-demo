@@ -33,7 +33,7 @@ public class ContextExecutorService {
 
     public void executeMain(Source source) {
         Context graalCtx = ctxMap.get("graalCtx");
-       graalCtx.eval(source);
+        graalCtx.eval(source);
     }
 
     public void executeMain(String languageId, CharSequence source) throws IllegalAccessException {
