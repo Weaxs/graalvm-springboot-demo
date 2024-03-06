@@ -1,4 +1,4 @@
-name: Test with GraalVM
+name: Test with OpenJDK
 
 on:
   push:
@@ -19,5 +19,10 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
+      - name: Compile C++
+        run: |
+          cd spring-openjdk/src/test/resources/scripts
+          gcc hello.cpp -o hello
+          gcc hello_func.cpp -o hello_func
       - name: Build with Maven
         run: cd spring-openjdk && mvn -B package -Pcoverage
