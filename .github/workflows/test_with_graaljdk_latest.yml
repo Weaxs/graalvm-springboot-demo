@@ -17,7 +17,7 @@ jobs:
         uses: graalvm/setup-graalvm@v1
         with:
           java-version: '17'
-          distribution: 'graalvm'
+          distribution: 'graalvm-community'
           cache: maven
       - name: Compile C++
         run: |

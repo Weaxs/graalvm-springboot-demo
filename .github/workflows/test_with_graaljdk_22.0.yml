@@ -17,7 +17,6 @@ jobs:
         uses: graalvm/setup-graalvm@v1
         with:
           java-version: '17'
-          distribution: 'graalvm'
           version: '22.3.0'
           cache: maven
       - name: Install dependencies
