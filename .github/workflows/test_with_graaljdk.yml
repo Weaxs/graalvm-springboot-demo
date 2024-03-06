@@ -1,0 +1,30 @@
+name: Test with GraalVM
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'graalvm'
+          cache: maven
+      - name: Install dependencies
+        run: |
+          gu install python
+          gu install R 
+          gu install js
+          gu install llvm
+          gu install ruby
+      - name: Build with Maven
+        run: cd spring-graaljdk && mvn -B package -Pcoverage
