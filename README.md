@@ -26,14 +26,17 @@ Demos for graalvm with springboot projects.
 
 **JDK**：[openjdk](https://openjdk.org/)
 
-**dependency**: org.graalvm.sdk:graal-sdk, org.graalvm.js:js, org.graalvm.js:js-scriptengine
+**dependency**: org.graalvm.sdk:graal-sdk, org.graalvm.polyglot:js-community, org.graalvm.polyglot:python-community, org.graalvm.polyglot:llvm-community, org.graalvm.polyglot:ruby-community
 
 **support language**:
 
 
-| icon                                            | language   | requied                                                | doc                                                                                     | github repo                                  | maven repo                                                            |
-| ----------------------------------------------- | ---------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------- | -------------------------------------------- | --------------------------------------------------------------------- |
-| <img height="30" src="icon/js.png" width="30"/> | js, nodejs | org.graalvm.js:js<br /> org.graalvm.js:js-scriptengine | [JavaScript and Node.js Reference](https://www.graalvm.org/latest/reference-manual/js/) | [graaljs](https://github.com/oracle/graaljs) | [maven graaljs](https://mvnrepository.com/artifact/org.graalvm.js/js) |
+| icon                                            | language   | requied                               | doc                                                                                     | github repo                                  | maven repo                                                                                         |
+| ----------------------------------------------- | ---------- |---------------------------------------| --------------------------------------------------------------------------------------- | -------------------------------------------- |----------------------------------------------------------------------------------------------------|
+| <img height="30" src="icon/js.png" width="30"/> | js, nodejs | org.graalvm.polyglot:js-community     | [JavaScript and Node.js Reference](https://www.graalvm.org/latest/reference-manual/js/) | [graaljs](https://github.com/oracle/graaljs) | [maven js-community](https://mvnrepository.com/artifact/org.graalvm.polyglot/js-community)         |
+| <img height="30" src="icon/python.png" width="30"/> | python                          | org.graalvm.polyglot:python-community | [Python Reference](https://www.graalvm.org/latest/reference-manual/python/)             | [graalpython](https://github.com/oracle/graalpython) | [maven python-community](https://mvnrepository.com/artifact/org.graalvm.polyglot/python-community) |
+| <img height="30" src="icon/llvm.png" width="30"/>   | C/C++, Fortran, Rust and others | org.graalvm.polyglot:llvm-community   | [LLVM Reference](https://www.graalvm.org/latest/reference-manual/llvm/)                 |                                                      | [maven llvm-community](https://mvnrepository.com/artifact/org.graalvm.polyglot/llvm-community)     |
+| <img height="30" src="icon/ruby.png" width="30"/>   | ruby                            | org.graalvm.polyglot:ruby-community   | [Ruby Reference](https://www.graalvm.org/latest/reference-manual/ruby/)                 | [truffleruby](https://github.com/oracle/truffleruby) | [maven ruby-community](https://mvnrepository.com/artifact/org.graalvm.polyglot/ruby-community)       |
 
 ## sandbox resource limits
 
