@@ -18,6 +18,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'graalvm'
+          version: '22.3.0'
           cache: maven
       - name: Install dependencies
         run: |

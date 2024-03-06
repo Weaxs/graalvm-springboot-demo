@@ -2,7 +2,12 @@
 
 Demos for graalvm with springboot projects.
 
-## spring with graalvm-jdk
+## Attention
+If you upgrade graalvm 22.0=>23.0, you need care about this [Turn all GraalVM Languages artifacts into standard Maven dependencies for Polyglot Embedders](https://github.com/oracle/graal/issues/6852)
+
+After GraalVM 23.0, it's not necessary to use `gu install` to install languages, just use standard Maven dependencies
+
+## spring with graalvm-jdk (graalvm-jdk version < 23.0)
 
 **JDK**：[graalvm-jdk](https://www.graalvm.org/downloads/)
 
@@ -22,7 +27,7 @@ Demos for graalvm with springboot projects.
 > ✨ 1.gu command  in “../graalvm-ce-xx/Contents/Home/bin” directory<br/> ✨ 2. before use llvm, must compile c/c++/fortran/rus/others to executables with embedded bitcode. you can use clang/clang++ in llvm-toolchain, refer [Compiling to LLVM Bitcode
 > ](https://www.graalvm.org/latest/reference-manual/llvm/Compiling/)
 
-## spring with openjdk
+## spring with openjdk (graalvm-jdk version >= 23.0)
 
 **JDK**：[openjdk](https://openjdk.org/)
 
