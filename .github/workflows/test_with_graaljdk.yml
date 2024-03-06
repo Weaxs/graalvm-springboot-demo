@@ -21,6 +21,7 @@ jobs:
           cache: maven
       - name: Install dependencies
         run: |
+          gu upgrade
           gu install python
           gu install R 
           gu install js
@@ -29,7 +30,7 @@ jobs:
       - name: Compile C++
         run: |
           cd spring-openjdk/src/test/resources/scripts
-          c++ hello.cpp -o hello
-          c++ hello_func.cpp -o hello_func
+          c++ hello.cpp -o hello -fPIC -pie -shared
+          c++ hello_func.cpp -o hello_func -fPIC -pie -shared
       - name: Build with Maven
         run: cd spring-graaljdk && mvn -B package -e -X
