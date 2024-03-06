@@ -22,7 +22,7 @@ jobs:
       - name: Compile C++
         run: |
           cd spring-openjdk/src/test/resources/scripts
-          gcc hello.cpp -o hello
-          gcc hello_func.cpp -o hello_func
+          c++ hello.cpp -o hello
+          c++ hello_func.cpp -o hello_func
       - name: Build with Maven
         run: cd spring-openjdk && mvn -B package -Pcoverage
